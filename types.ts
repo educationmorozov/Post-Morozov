@@ -13,6 +13,7 @@ export enum AspectRatio {
 export enum NickPosition {
   BOTTOM_LEFT = 'BOTTOM_LEFT',
   BOTTOM_RIGHT = 'BOTTOM_RIGHT',
+  BOTTOM_CENTER = 'BOTTOM_CENTER',
   TOP_RIGHT = 'TOP_RIGHT'
 }
 

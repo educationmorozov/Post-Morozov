@@ -274,8 +274,11 @@ export const renderSlideToCanvas = async (options: RenderOptions): Promise<Rende
     const nickW = ctx.measureText(handle).width;
     let nx = 100;
     let ny = height - 100;
+    
     if (nickPosition === NickPosition.BOTTOM_RIGHT) {
       nx = width - 100 - nickW;
+    } else if (nickPosition === NickPosition.BOTTOM_CENTER) {
+      nx = (width - nickW) / 2;
     } else if (nickPosition === NickPosition.TOP_RIGHT) {
       nx = width - 100 - nickW;
       ny = 100 - 40;

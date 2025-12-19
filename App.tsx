@@ -125,10 +125,10 @@ const App: React.FC = () => {
             </div>
             <div>
               <h1 className="text-xl font-black tracking-tight text-gray-900 leading-none uppercase">CarouselGen</h1>
-              <span className="text-[9px] font-bold text-gray-400 uppercase tracking-[0.2em]">Cyrillic & Minimal</span>
+              <span className="text-[9px] font-bold text-gray-400 uppercase tracking-[0.2em]">Cyrillic & Simple</span>
             </div>
           </div>
-          <p className="hidden md:block text-[10px] font-black text-gray-300 uppercase tracking-widest">v2.7 • Blog CTA</p>
+          <p className="hidden md:block text-[10px] font-black text-gray-400 uppercase tracking-widest">v3.1 • Minimal UI</p>
         </div>
       </header>
 
@@ -279,6 +279,7 @@ const App: React.FC = () => {
                 >
                   <option value={NickPosition.BOTTOM_LEFT}>↙ Ник слева</option>
                   <option value={NickPosition.BOTTOM_RIGHT}>↘ Ник справа</option>
+                  <option value={NickPosition.BOTTOM_CENTER}>↓ Ник по центру</option>
                   <option value={NickPosition.TOP_RIGHT}>↗ Ник сверху</option>
                 </select>
             </section>
@@ -375,6 +376,11 @@ const App: React.FC = () => {
           </div>
         </div>
       </main>
+      <footer className="max-w-7xl mx-auto px-4 py-10 border-t border-gray-100 text-center">
+        <p className="text-gray-400 text-xs font-bold uppercase tracking-widest">
+          No Login Required • Public & Free • Cyrillic Support
+        </p>
+      </footer>
     </div>
   );
 };
