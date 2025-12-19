@@ -3,55 +3,59 @@
 <html lang="ru">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Генератор карусели для Instagram</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+    <title>Генератор карусели</title>
+    
+    <!-- Скрипт для отлова ошибок до загрузки React -->
+    <script>
+      window.onerror = function(msg, url, line, col, error) {
+        var root = document.getElementById('root');
+        if (root && (!root.innerHTML || root.innerHTML.includes('loading-screen'))) {
+          root.innerHTML = '<div style="padding:20px;color:red;font-family:sans-serif;"><b>Ошибка загрузки:</b><br>' + msg + '<br><small>Попробуйте открыть в обычном браузере (Chrome/Safari)</small></div>';
+        }
+        return false;
+      };
+    </script>
+
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Manrope:wght@400;700&family=Montserrat:wght@400;700&family=Raleway:wght@400;700&family=Rubik:wght@400;700&family=Oswald:wght@400;700&family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&family=Cormorant+Garamond:wght@400;700&family=PT+Serif:wght@400;700&family=Golos+Text:wght@400;700&display=swap" rel="stylesheet">
     
-    <!-- Полифилл для поддержки Import Maps в старых браузерах и iOS Safari -->
-    <script async src="https://ga.jspm.io/npm:es-module-shims@1.10.1/dist/es-module-shims.js"></script>
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.10.1/dist/es-module-shims.js" crossorigin="anonymous"></script>
 
-    <style>
-      body {
-        font-family: 'Inter', sans-serif;
-      }
-      /* Custom scrollbar for better aesthetics */
-      ::-webkit-scrollbar {
-        width: 6px;
-      }
-      ::-webkit-scrollbar-track {
-        background: transparent;
-      }
-      ::-webkit-scrollbar-thumb {
-        background: #e2e8f0;
-        border-radius: 10px;
-      }
-      ::-webkit-scrollbar-thumb:hover {
-        background: #cbd5e1;
-      }
-      .custom-scrollbar {
-        scrollbar-width: thin;
-        scrollbar-color: #e2e8f0 transparent;
-      }
-    </style>
-  <script type="importmap">
+    <script type="importmap">
 {
   "imports": {
-    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
-    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
-    "react": "https://esm.sh/react@^19.2.3",
+    "react": "https://esm.sh/react@18.3.1",
+    "react-dom": "https://esm.sh/react-dom@18.3.1",
+    "react-dom/client": "https://esm.sh/react-dom@18.3.1/client",
+    "lucide-react": "https://esm.sh/lucide-react@0.447.0?external=react",
+    "jszip": "https://esm.sh/jszip@3.10.1",
     "react/": "https://esm.sh/react@^19.2.3/",
-    "jszip": "https://esm.sh/jszip@^3.10.1"
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/"
   }
 }
 </script>
-</head>
-  <body class="bg-gray-50 text-gray-900 overflow-x-hidden">
-    <noscript>
-      <div style="padding: 20px; text-align: center; font-family: sans-serif;">
-        Пожалуйста, включите JavaScript для использования этого приложения.
+
+    <style>
+      body { font-family: 'Inter', sans-serif; -webkit-font-smoothing: antialiased; }
+      #loading-screen {
+        position: fixed; inset: 0; display: flex; align-items: center; justify-content: center;
+        background: white; z-index: 9999; flex-direction: column; gap: 10px;
+      }
+      .spinner {
+        width: 30px; height: 30px; border: 3px solid #f3f3f3; border-top: 3px solid #000;
+        border-radius: 50%; animation: spin 1s linear infinite;
+      }
+      @keyframes spin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
+    </style>
+  </head>
+  <body class="bg-gray-50">
+    <div id="root">
+      <div id="loading-screen">
+        <div class="spinner"></div>
+        <div style="font-size: 12px; font-weight: bold; letter-spacing: 1px; color: #999;">ЗАГРУЗКА...</div>
       </div>
-    </noscript>
-    <div id="root"></div>
+    </div>
+    <noscript>Включите JavaScript</noscript>
   </body>
 </html>

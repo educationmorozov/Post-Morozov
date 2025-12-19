@@ -5,9 +5,7 @@ import App from './App';
 
 const rootElement = document.getElementById('root');
 
-if (!rootElement) {
-  console.error("Критическая ошибка: элемент #root не найден.");
-} else {
+if (rootElement) {
   try {
     const root = ReactDOM.createRoot(rootElement);
     root.render(
@@ -16,11 +14,12 @@ if (!rootElement) {
       </React.StrictMode>
     );
   } catch (error) {
-    console.error("Ошибка при запуске React приложения:", error);
+    console.error("React Error:", error);
     rootElement.innerHTML = `
-      <div style="padding: 40px; text-align: center; color: #666;">
-        <h2>Что-то пошло не так</h2>
-        <p>Пожалуйста, обновите страницу или попробуйте зайти через другой браузер.</p>
+      <div style="padding: 40px; text-align: center; color: #666; font-family: sans-serif;">
+        <h2>Ошибка запуска</h2>
+        <p>Ваш браузер не поддерживает некоторые функции. Обновите браузер или откройте ссылку в Chrome/Safari.</p>
+        <pre style="font-size:10px; color:red;">${error}</pre>
       </div>
     `;
   }
