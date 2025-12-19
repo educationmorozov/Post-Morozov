@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="ru">
   <head>
@@ -6,6 +7,10 @@
     <title>Генератор карусели для Instagram</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Manrope:wght@400;700&family=Montserrat:wght@400;700&family=Raleway:wght@400;700&family=Rubik:wght@400;700&family=Oswald:wght@400;700&family=Roboto:wght@400;700&family=Playfair+Display:wght@400;700&family=Lora:wght@400;700&family=Cormorant+Garamond:wght@400;700&family=PT+Serif:wght@400;700&family=Golos+Text:wght@400;700&display=swap" rel="stylesheet">
+    
+    <!-- Полифилл для поддержки Import Maps в старых браузерах и iOS Safari -->
+    <script async src="https://ga.jspm.io/npm:es-module-shims@1.10.1/dist/es-module-shims.js"></script>
+
     <style>
       body {
         font-family: 'Inter', sans-serif;
@@ -36,13 +41,17 @@
     "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
     "react": "https://esm.sh/react@^19.2.3",
     "react/": "https://esm.sh/react@^19.2.3/",
-    "jszip": "https://esm.sh/jszip@^3.10.1",
-    "@google/genai": "https://esm.sh/@google/genai@^1.34.0"
+    "jszip": "https://esm.sh/jszip@^3.10.1"
   }
 }
 </script>
 </head>
   <body class="bg-gray-50 text-gray-900 overflow-x-hidden">
+    <noscript>
+      <div style="padding: 20px; text-align: center; font-family: sans-serif;">
+        Пожалуйста, включите JavaScript для использования этого приложения.
+      </div>
+    </noscript>
     <div id="root"></div>
   </body>
 </html>
